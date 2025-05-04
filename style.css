@@ -661,74 +661,62 @@ a:hover {
     text-decoration: none;
 }
 
-.one_half {
-    width: 48%!important;
+/* Flexbox Layout Replacement */
+.vc_row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    opacity: 1;
 }
 
-.one_third {
-    width: 30.6%!important;
+.vc_row.small {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-.one_fourth {
-    width: 22%!important;
+.vc_row.full {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
 }
 
-.one_fifth {
-    width: 16.8%!important;
+[class*="one_"],
+[class*="two_"],
+[class*="three_"],
+[class*="four_"],
+[class*="five_"],
+[class*="sixth"] {
+    margin-bottom: 20px !important;
 }
 
-.one_sixth {
-    width: 13.33%!important;
+.one_half       { flex: 0 0 48%; }
+.one_third      { flex: 0 0 30.6%; }
+.one_fourth     { flex: 0 0 22%; }
+.one_fifth      { flex: 0 0 16.8%; }
+.one_sixth      { flex: 0 0 13.33%; }
+.two_fifth      { flex: 0 0 37.6%; }
+.two_fourth     { flex: 0 0 48%; }
+.two_third      { flex: 0 0 65.33%; }
+.three_fifth    { flex: 0 0 58.4%; }
+.three_fourth   { flex: 0 0 74%; }
+.four_fifth     { flex: 0 0 79.2%; }
+.five_sixth     { flex: 0 0 82.67%; }
+
+.outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
-.two_fifth {
-    width: 37.6%!important;
-}
-
-.two_fourth {
-    width: 48%!important;
-}
-
-.two_third {
-    width: 65.33%!important;
-}
-
-.three_fifth {
-    width: 58.4%!important;
-}
-
-.three_fourth {
-    width: 74%!important;
-}
-
-.four_fifth {
-    width: 79.2%!important;
-}
-
-.five_sixth {
-    width: 82.67%!important;
-}
-
-.one_half,
-.one_third,
-.two_third,
-.three_fourth,
-.one_fourth,
-.two_fourth,
-.one_fifth,
-.two_fifth,
-.three_fifth,
-.four_fifth,
-.one_sixth,
-.five_sixth {
-    float: left!important;
-    margin-bottom: 20px!important;
-    margin-right: 4%!important;
-    position: relative!important;
-}
-
-.last {
-    margin-right: 0px!important;
+.inner {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .text-align-center {
