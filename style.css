@@ -1,29 +1,29 @@
-/* ------------------------------------------------------------------
-Project:	Satelite - Creative Showcase Portfolio Template
-Version:	1.2
-Last change:	19/01/2019
-Assigned to:	ClaPat 
-Primary use:	Showcase Portfolio 
+/* ------------------------------------------------------------------ 
+Project:    Satelite - Creative Showcase Portfolio Template 
+Version:    1.2 
+Last change:    19/01/2019 
+Assigned to:    ClaPat  
+Primary use:    Showcase Portfolio  
 ------------------------------------------------------------------- */
 @import url("css/showcase.css");
 @import url("css/portfolio.css");
 @import url("css/shortcodes.css");
 @import url("css/assets.css");
 
-/* ------------------------------------------------------------------
-
-01. General Styles
-02. Magic Cursor
-03. Page Preloader
-04. Header Elements
-05. Hero Section
-06. Main Content 
-07. Footer Elements
-08. Responsive Media Querries
-
+/* ------------------------------------------------------------------ 
+ 
+01. General Styles 
+02. Magic Cursor 
+03. Page Preloader 
+04. Header Elements 
+05. Hero Section 
+06. Main Content  
+07. Footer Elements 
+08. Responsive Media Querries 
+ 
 ------------------------------------------------------------------- */
-/* --------------------------------------------------
-	01. General Settings
+/* -------------------------------------------------- 
+    01. General Settings 
 --------------------------------------------------- */
 html,
 body {
@@ -661,62 +661,74 @@ a:hover {
     text-decoration: none;
 }
 
-/* Flexbox Layout Replacement */
-.vc_row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4%;
-    position: relative;
-    z-index: 1;
-    box-sizing: border-box;
-    opacity: 1;
+.one_half {
+    width: 48%!important;
 }
 
-.vc_row.small {
-    max-width: 800px;
-    margin: 0 auto;
-    width: 100%;
+.one_third {
+    width: 30.6%!important;
 }
 
-.vc_row.full {
-    width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: calc(50% - 50vw) !important;
+.one_fourth {
+    width: 22%!important;
 }
 
-[class*="one_"],
-[class*="two_"],
-[class*="three_"],
-[class*="four_"],
-[class*="five_"],
-[class*="sixth"] {
-    margin-bottom: 20px !important;
+.one_fifth {
+    width: 16.8%!important;
 }
 
-.one_half       { flex: 0 0 48%; }
-.one_third      { flex: 0 0 30.6%; }
-.one_fourth     { flex: 0 0 22%; }
-.one_fifth      { flex: 0 0 16.8%; }
-.one_sixth      { flex: 0 0 13.33%; }
-.two_fifth      { flex: 0 0 37.6%; }
-.two_fourth     { flex: 0 0 48%; }
-.two_third      { flex: 0 0 65.33%; }
-.three_fifth    { flex: 0 0 58.4%; }
-.three_fourth   { flex: 0 0 74%; }
-.four_fifth     { flex: 0 0 79.2%; }
-.five_sixth     { flex: 0 0 82.67%; }
-
-.outer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+.one_sixth {
+    width: 13.33%!important;
 }
 
-.inner {
-    width: 100%;
-    box-sizing: border-box;
+.two_fifth {
+    width: 37.6%!important;
+}
+
+.two_fourth {
+    width: 48%!important;
+}
+
+.two_third {
+    width: 65.33%!important;
+}
+
+.three_fifth {
+    width: 58.4%!important;
+}
+
+.three_fourth {
+    width: 74%!important;
+}
+
+.four_fifth {
+    width: 79.2%!important;
+}
+
+.five_sixth {
+    width: 82.67%!important;
+}
+
+.one_half,
+.one_third,
+.two_third,
+.three_fourth,
+.one_fourth,
+.two_fourth,
+.one_fifth,
+.two_fifth,
+.three_fifth,
+.four_fifth,
+.one_sixth,
+.five_sixth {
+    float: left!important;
+    margin-bottom: 20px!important;
+    margin-right: 4%!important;
+    position: relative!important;
+}
+
+.last {
+    margin-right: 0px!important;
 }
 
 .text-align-center {
@@ -814,8 +826,8 @@ main {
     transition: background 0.4s ease-in-out 0s;
 }
 
-/* --------------------------------------------------
-	02. Magic Cursor
+/* -------------------------------------------------- 
+    02. Magic Cursor 
 --------------------------------------------------- */
 #magic-cursor {
     position: absolute;
@@ -1099,8 +1111,8 @@ main {
     display: none;
 }
 
-/* --------------------------------------------------
-	03. Page Preloader
+/* -------------------------------------------------- 
+    03. Page Preloader 
 --------------------------------------------------- */
 .preloader-wrap {
     width: 100%;
@@ -1182,8 +1194,8 @@ main {
     background: rgba(0,0,0,1);
 }
 
-/* --------------------------------------------------
-	04. Header Elements
+/* -------------------------------------------------- 
+    04. Header Elements 
 --------------------------------------------------- */
 .admin-bar header {
     top: 32px;
@@ -1763,8 +1775,8 @@ nav.open {
     top: 10px;
 }
 
-/* --------------------------------------------------
-	05. Hero Section
+/* -------------------------------------------------- 
+    05. Hero Section 
 --------------------------------------------------- */
 #hero {
     width: 100%;
@@ -2027,8 +2039,8 @@ nav.open {
     }
 }
 
-/* --------------------------------------------------
-	06. Main Content
+/* -------------------------------------------------- 
+    06. Main Content 
 --------------------------------------------------- */
 .smooth-scroll #content-scroll {
     position: fixed;
@@ -2096,8 +2108,8 @@ nav.open {
     opacity: 0;
 }
 
-/* --------------------------------------------------
-	07. Page Navigation
+/* -------------------------------------------------- 
+    07. Page Navigation 
 --------------------------------------------------- */
 #page-nav {
     height: auto;
@@ -2197,8 +2209,8 @@ nav.open {
     color: #fff;
 }
 
-/* --------------------------------------------------
-	07. Footer Elements
+/* -------------------------------------------------- 
+    07. Footer Elements 
 --------------------------------------------------- */
 footer {
     position: relative;
@@ -2610,8 +2622,8 @@ nav.open {
     background: transparent;
 }
 
-/* --------------------------------------------------
-	08. Responsive
+/* -------------------------------------------------- 
+    08. Responsive 
 --------------------------------------------------- */
 @media only screen and (max-width: 1600px) {
     footer .button-wrap.left .button-text {
