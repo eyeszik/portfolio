@@ -331,3 +331,32 @@ if (typeof exports === 'object') {
 
 
 
+
+
+
+function safeQuery(selector) {
+    const el = document.querySelector(selector);
+    if (!el) console.warn('[safeQuery] Selector not found:', selector);
+    return el;
+}
+function safeQueryAll(selector) {
+    const elList = document.querySelectorAll(selector);
+    if (!elList || elList.length === 0) console.warn('[safeQueryAll] No elements found:', selector);
+    return elList;
+}
+function safeById(id) {
+    const el = document.getElementById(id);
+    if (!el) console.warn('[safeById] Element not found:', id);
+    return el;
+}
+(function($) {
+    if ($ && $.ajaxSetup) {
+        const original = $.ajax;
+        $.ajax = function(settings) {
+            const failCallback = settings.fail || function(err) {
+                console.error('[AJAX fail]', settings.url, err);
+            };
+            return original.call($, Object.assign({}, settings)).fail(failCallback);
+        };
+    }
+})(window.jQuery);
