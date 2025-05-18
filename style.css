@@ -3410,3 +3410,8 @@ nav.open {
         display: block;
     }
 }
+
+body.page-loaded {
+    overflow-y: auto !important;
+    height: auto !important;
+}
