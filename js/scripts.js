@@ -211,7 +211,10 @@ Function First Load
 			});			
 		}
 		
-		$("html,body").animate({scrollTop: 0}, 1);
+if (!window.__initialScrollHandled) {
+  $("html,body").animate({scrollTop: 0}, 1);
+  window.__initialScrollHandled = true;
+}
 		
 		if ($("#page-content").hasClass("light-content")) {
 			$("main, nav").css('background-color', '#141414');
