@@ -43,7 +43,7 @@ html {
 }
 
 body {
-    overflow-x: hidden;
+    overflow: auto;
     overflow-y: auto;
     -webkit-transition: opacity 0.2s ease-in-out 0.2s;
     transition: opacity 0.2s ease-in-out 0.2s;
