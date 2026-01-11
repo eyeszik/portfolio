@@ -8,6 +8,16 @@
          gtag('js', new Date());
 
          gtag('config', 'UA-121468769-4');
+
+         // Polyfill for older ga() calls used in AJAX page transitions
+         window.ga = window.ga || function() {
+            var args = Array.prototype.slice.call(arguments);
+            if (args[0] === 'set' && args[1] === 'page') {
+               gtag('config', 'UA-121468769-4', {'page_path': args[2]});
+            } else if (args[0] === 'send' && args[1] === 'pageview') {
+               gtag('event', 'page_view');
+            }
+         };
       </script>
       <title>Isaac Bishop - Portfolio</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
