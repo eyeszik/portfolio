@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121468769-4" type="4bc1ea5f94e55af749804064-text/javascript"></script>
-<script type="4bc1ea5f94e55af749804064-text/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121468769-4"></script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-121468769-4');
+
+  // Polyfill for older ga() calls used in AJAX page transitions
+  window.ga = window.ga || function() {
+    var args = Array.prototype.slice.call(arguments);
+    if (args[0] === 'set' && args[1] === 'page') {
+      gtag('config', 'UA-121468769-4', {'page_path': args[2]});
+    } else if (args[0] === 'send' && args[1] === 'pageview') {
+      gtag('event', 'page_view');
+    }
+  };
 </script>
 <title>Isaac Bishop - portfolio Bevy Bar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -313,14 +323,13 @@
 </div>
 <div id="clone-image"></div>
 <div id="rotate-device"></div>
-<script src="http://isaacbishop.com/assets/js/jquery.min.js" type="4bc1ea5f94e55af749804064-text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js" type="4bc1ea5f94e55af749804064-text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js" type="4bc1ea5f94e55af749804064-text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js" type="4bc1ea5f94e55af749804064-text/javascript"></script>
-<script type="4bc1ea5f94e55af749804064-text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&sensor=false"></script>
-<script src="js/plugins.js" type="4bc1ea5f94e55af749804064-text/javascript"></script>
-<script src="js/scripts.js" type="4bc1ea5f94e55af749804064-text/javascript"></script>
-<script type="4bc1ea5f94e55af749804064-text/javascript" src="http://isaacbishop.com/assets/js/popper.js"></script>
-<script type="4bc1ea5f94e55af749804064-text/javascript" src="http://isaacbishop.com/bootstrap/js/bootstrap.js"></script>
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="4bc1ea5f94e55af749804064-|49" defer=""></script></body>
+<script src="http://isaacbishop.com/assets/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&sensor=false"></script>
+<script src="js/plugins.js"></script>
+<script src="js/scripts.js"></script>
+<script src="http://isaacbishop.com/assets/js/popper.js"></script>
+<script src="http://isaacbishop.com/bootstrap/js/bootstrap.js"></script>
 </html>
