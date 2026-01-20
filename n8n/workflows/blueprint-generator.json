@@ -1,0 +1,39 @@
+{
+  "name": "Blueprint Generator (Aurora Studio)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aurora/blueprint",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "Webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [300, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://web:3000/api/blueprint",
+        "method": "POST",
+        "sendBody": true,
+        "contentType": "json",
+        "jsonBody": "={{$json.body}}",
+        "options": { "timeout": 60000 }
+      },
+      "id": "CallBlueprintAPI",
+      "name": "Call Blueprint API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [560, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "Call Blueprint API", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "template"
+}
