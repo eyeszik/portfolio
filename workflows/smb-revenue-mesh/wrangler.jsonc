@@ -1,0 +1,5 @@
+{
+  "name": "smb-revenue-mesh",
+  "main": "src/ingress_gateway.ts",
+  "compatibility_date": "2026-05-12"
+}
