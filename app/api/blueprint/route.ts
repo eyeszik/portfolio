@@ -53,7 +53,7 @@ export async function POST(req: Request) {
         missing_questions: [{ pass: 0, questions: ["Clarify a safer, non-automated alternative."] }],
         architecture: { status: "blocked" },
         workflows: [],
-        outreach: { allowed_mode: "BLOCKED", reasons: ["Governance BLOCK."], safe_templates: [] },
+        outreach: { allowed_mode: "BLOCKED" as const, reasons: ["Governance BLOCK."], safe_templates: [] },
         n8n: { template_id: "blueprint-generator", export_hint: "Not available when blocked." }
       }
     };
@@ -90,16 +90,16 @@ function buildScenarioBands(industryId: string, status: "ok" | "blocked") {
   // Heuristic bands; replace with real analytics + conversion inputs when available.
   if (status === "blocked") {
     return {
-      best: { revenue_range_usd_month: [0, 0], notes: ["Blocked."] },
-      base: { revenue_range_usd_month: [0, 0], notes: ["Blocked."] },
-      worst: { revenue_range_usd_month: [0, 0], notes: ["Blocked."] }
+      best: { revenue_range_usd_month: [0, 0] as [number, number], notes: ["Blocked."] },
+      base: { revenue_range_usd_month: [0, 0] as [number, number], notes: ["Blocked."] },
+      worst: { revenue_range_usd_month: [0, 0] as [number, number], notes: ["Blocked."] }
     };
   }
 
   const base = industryId === "creator-economy" ? [250, 2500] : industryId === "local-services" ? [500, 5000] : [200, 2000];
   return {
-    best: { revenue_range_usd_month: [base[0] * 2, base[1] * 3], notes: ["Strong niche fit + consistent execution + low churn."] },
-    base: { revenue_range_usd_month: [base[0], base[1]], notes: ["Reasonable execution with some iteration cycles."] },
-    worst: { revenue_range_usd_month: [0, Math.max(200, base[0])], notes: ["Weak offer-market fit; compliance friction; poor distribution."] }
+    best: { revenue_range_usd_month: [(base[0] ?? 0) * 2, (base[1] ?? 0) * 3] as [number, number], notes: ["Strong niche fit + consistent execution + low churn."] },
+    base: { revenue_range_usd_month: [(base[0] ?? 0), (base[1] ?? 0)] as [number, number], notes: ["Reasonable execution with some iteration cycles."] },
+    worst: { revenue_range_usd_month: [0, Math.max(200, base[0] ?? 0)] as [number, number], notes: ["Weak offer-market fit; compliance friction; poor distribution."] }
   };
 }

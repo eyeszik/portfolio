@@ -155,9 +155,7 @@ function buildOutreachGate(params: { governance: GovernanceResult; pack: Industr
   if (hot.some(h => /spam|consent|TCPA/i.test(h))) reasons.push("Industry compliance hotspots include consent/spam constraints.");
   if (params.governance.risk !== "LOW") reasons.push("Governance risk not LOW → human review required for outreach.");
 
-  const allowed_mode =
-    params.governance.risk === "LOW" ? "DRAFT_ONLY" :
-    "HUMAN_REVIEW_REQUIRED";
+  const allowed_mode = (params.governance.risk === "LOW" ? "DRAFT_ONLY" : "HUMAN_REVIEW_REQUIRED") as "DRAFT_ONLY" | "HUMAN_REVIEW_REQUIRED" | "BLOCKED";
 
   return {
     allowed_mode,
