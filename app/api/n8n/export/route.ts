@@ -1,16 +1,17 @@
 import { NextResponse } from "next/server";
-import { readFile } from "node:fs/promises";
-import path from "node:path";
+import blueprintGenerator from "@/n8n/workflows/blueprint-generator.json";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const template = searchParams.get("template") ?? "blueprint-generator";
 
-  const p = path.join(process.cwd(), "n8n", "workflows", `${template}.json`);
-  const json = await readFile(p, "utf8").catch(() => null);
-  if (!json) return NextResponse.json({ error: "Template not found" }, { status: 404 });
+  if (template !== "blueprint-generator") {
+    return NextResponse.json({ error: "Template not found" }, { status: 404 });
+  }
+
+  const json = JSON.stringify(blueprintGenerator, null, 2);
 
   return new NextResponse(json, {
     status: 200,

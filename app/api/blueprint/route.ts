@@ -5,7 +5,7 @@ import { governanceEvaluate, type GovernanceInput } from "@/server/governance";
 import { buildBlueprint } from "@/server/planner";
 import { BudgetGovernor } from "@/server/budget";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
