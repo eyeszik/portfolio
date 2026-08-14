@@ -238,9 +238,11 @@
     doc.addEventListener("DOMContentLoaded", function () {
       window.setTimeout(ownNavigation, 0);
       window.setTimeout(ownNavigation, 150);
+      window.setTimeout(forceReady, reducedMotion ? 0 : 900);
     }, { once: true });
   } else {
     ownNavigation();
+    window.setTimeout(forceReady, reducedMotion ? 0 : 900);
   }
 
   window.addEventListener("pageshow", function () {
@@ -250,8 +252,8 @@
   });
 
   window.addEventListener("load", function () {
-    window.setTimeout(forceReady, 2400);
+    window.setTimeout(forceReady, reducedMotion ? 0 : 350);
   }, { once: true });
 
-  window.setTimeout(forceReady, 3600);
+  window.setTimeout(forceReady, 1800);
 })();
