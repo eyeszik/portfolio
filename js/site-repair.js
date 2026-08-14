@@ -230,6 +230,30 @@
     });
   }
 
+  function guardPairedTransition(name, isComplete) {
+    var original = window[name];
+    if (typeof original !== "function") return;
+
+    window[name] = function () {
+      if (!isComplete()) return;
+      return original.apply(this, arguments);
+    };
+  }
+
+  guardPairedTransition("FitThumbScreen", function () {
+    return doc.querySelectorAll(".thumb-page").length >= doc.querySelectorAll(".item-image").length;
+  });
+
+  guardPairedTransition("FitSlideScreen", function () {
+    return doc.querySelectorAll(".thumb-page").length >= doc.querySelectorAll(".section-image").length;
+  });
+
+  guardPairedTransition("FitQuickScreen", function () {
+    var projects = doc.querySelectorAll("#quick-projects li").length;
+    return doc.querySelectorAll(".thumb-page").length >= projects &&
+      doc.querySelectorAll(".hover-reveal__img").length >= projects;
+  });
+
   prepareContact();
   prepareMedia();
   updateCopyrightYear();
