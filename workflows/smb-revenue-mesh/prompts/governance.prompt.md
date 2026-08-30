@@ -1,1 +1,0 @@
-# prompts/governance.prompt.md
