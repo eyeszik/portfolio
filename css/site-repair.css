@@ -1,0 +1,124 @@
+/* Runtime resilience for the legacy portfolio without changing its visual identity. */
+html {
+  scroll-behavior: smooth;
+}
+
+#page-content {
+  transition: opacity 0.34s ease, transform 0.34s ease;
+}
+
+body.site-leaving #page-content {
+  opacity: 0;
+  transform: translate3d(0, -8px, 0);
+  pointer-events: none;
+}
+
+body.site-force-ready {
+  opacity: 1 !important;
+}
+
+body.site-force-ready #main {
+  opacity: 1 !important;
+}
+
+body.site-force-ready .preloader-wrap {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translate3d(0, -101%, 0) !important;
+}
+
+.hero-video-wrapper.media-fallback,
+.video-wrapper.media-fallback video,
+.video-wrapper.media-fallback .control {
+  display: none !important;
+}
+
+.video-wrapper.media-fallback {
+  min-height: clamp(240px, 52vw, 720px);
+  background: #111;
+  overflow: hidden;
+}
+
+.video-wrapper.media-fallback .video-cover {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.media-fallback-label {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  z-index: 3;
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.48);
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+#message.form-error,
+#message.form-success {
+  display: block;
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  border-radius: 3px;
+}
+
+#message.form-error {
+  color: #ffd7d7;
+  background: rgba(180, 32, 32, 0.22);
+}
+
+#message.form-success {
+  color: #d8ffe4;
+  background: rgba(32, 160, 82, 0.2);
+}
+
+@media (max-width: 1024px), (pointer: coarse) {
+  body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  body.smooth-scroll {
+    overflow: auto;
+  }
+
+  .smooth-scroll #content-scroll {
+    position: relative;
+    inset: auto;
+  }
+
+  .scrollbar-track {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  body.site-leaving #page-content {
+    transform: none;
+  }
+}
